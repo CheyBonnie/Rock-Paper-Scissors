@@ -14,6 +14,8 @@ let getUserChoice = function(userInput) {
      return 'paper';
     } else if (userInput === 'scissors') {
         return 'scissors';
+    } else if (userInput === 'bomb'){
+        return 'bomb'
     } else {
         console.log('Error!')
         return 'invalid';
@@ -45,13 +47,15 @@ var determineWinner = function(userChoice, computerChoice) {
         return 'Computer Wins';
     } else if (userChoice === 'invalid') {
         return 'Computer Wins';
+    } else if (userChoice === 'bomb') {
+        return 'The computer has lost connection. Looks like you win!';
     } else {
         return 'You Win';
     }
 }
 
 var playGame = function() {
-    var userChoice = getUserChoice('scissors');
+    var userChoice = getUserChoice('bomb');
     var computerChoice = getComputerChoice();
     console.log(`Users choice is ${userChoice}`);
     console.log(`Computers choice is ${computerChoice}`);
